@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>TikTok-Anmeldung | GTA Clips Today</title>
+  <link rel="icon" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main class="wrap legal">
+    <h1>TikTok-Anmeldung</h1>
+    <p id="msg">Einen Moment, die Anmeldung wird an die GTA Clips Pipeline auf diesem PC weitergegeben ...</p>
+  </main>
+  <script>
+    // Leitet die Antwort von TikTok (code, state) an das lokale Anmeldeprogramm auf diesem PC weiter.
+    // Es werden keine Daten an diese Webseite oder Dritte gesendet.
+    const params = new URLSearchParams(location.search);
+    const msg = document.getElementById("msg");
+    if (params.get("error")) {
+      msg.textContent = "TikTok meldet einen Fehler: " + (params.get("error_description") || params.get("error"));
+    } else if (params.get("code")) {
+      location.replace("http://127.0.0.1:8765/callback" + location.search);
+    } else {
+      msg.textContent = "Diese Seite wird nur für die TikTok-Anmeldung der GTA Clips Pipeline gebraucht.";
+    }
+  </script>
+</body>
+</html>
