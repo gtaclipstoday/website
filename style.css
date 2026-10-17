@@ -82,6 +82,19 @@ h3 { font-size: 24px; margin: 0 0 8px; }
 .btn.ghost { background: transparent; border: 2px solid var(--cyan); box-shadow: none; color: var(--cyan); }
 .btn.ghost:hover { color: var(--text); border-color: var(--text); }
 .facts { margin-top: 18px; color: var(--muted); font-size: 15px; }
+.btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* PSN-Direktversand */
+.psn-card {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  background: linear-gradient(135deg, rgba(255, 61, 160, 0.18), rgba(0, 229, 255, 0.12));
+  border: 2px solid var(--pink); border-radius: var(--radius); padding: 22px; margin: 0 0 26px; text-align: center;
+}
+.psn-label { color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; }
+.psn-id { font-family: "Anton", Impact, sans-serif; font-size: clamp(34px, 7vw, 58px); color: var(--gold);
+          letter-spacing: 0.03em; user-select: all; word-break: break-all; }
+ol.steps { padding-left: 22px; margin: 0 0 14px; }
+ol.steps li { margin-bottom: 10px; }
 
 /* Abschnitte */
 section { padding: 56px 0; border-top: 1px solid rgba(255, 255, 255, 0.06); }
