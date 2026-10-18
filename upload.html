@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload your clip | GTA Clips Today</title>
+  <meta name="description" content="Upload your GTA clip to GTA Clips Today - no account needed. The best clips get featured with your name on them.">
+  <meta property="og:title" content="Upload your GTA clip | GTA Clips Today">
+  <meta property="og:description" content="No account needed. The best clips get featured on YouTube, TikTok and Instagram with your name on them.">
+  <meta property="og:image" content="https://gtaclipstoday.com/assets/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1a1424">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="./"><img src="assets/logo.png" alt="">GTA Clips Today</a>
+      <nav><a class="txt" href="./#psn">Send from PS5</a><a class="txt" href="./#faq">FAQ</a></nav>
+    </header>
+
+    <main class="up" style="max-width:640px;margin:0 auto;padding:40px 0 10px">
+      <span class="badge">NO ACCOUNT NEEDED</span>
+      <h1>Upload your clip</h1>
+      <p class="lead" style="max-width:none">Drop your video below, tell us your gamertag and you're done. The best moments land in our videos with your name on them.</p>
+      <p class="hint psn-hint">On PS5? It's even easier: send your clip as a message to <b>GTA_Clips_Today</b> on PSN. <a href="./#psn">How it works</a></p>
+
+      <form class="upform" id="upform" novalidate>
+            <div class="uphead">Upload your clip <span>no account needed</span></div>
+            <div class="drop" id="drop">
+              <b>Drop your video here</b>
+              <span>or click to choose · up to 4 GB · max. 5 videos</span>
+              <input type="file" id="upfile" accept="video/*,.mp4,.mov,.mkv,.webm,.avi,.m4v" multiple>
+            </div>
+            <ul class="upfiles" id="upfiles"></ul>
+            <div class="or">or paste a link to your own upload</div>
+            <input class="in" id="uplink" type="url" placeholder="https://youtube.com/…  medal.tv/…  tiktok.com/…">
+            <div class="two-in">
+              <input class="in" id="gamertag" maxlength="40" placeholder="Your gamertag" required>
+              <select class="in" id="cat" aria-label="Clip category"></select>
+            </div>
+            <details class="more"><summary>More details (optional)</summary>
+              <input class="in" id="social" maxlength="120" placeholder="Your channel or social - we may tag you">
+              <textarea class="in" id="desc" rows="2" maxlength="500" placeholder="What happens in the clip? e.g. at 0:42 my car flies over the city"></textarea>
+            </details>
+            <label class="consent"><input type="checkbox" id="consent">
+              <span>I recorded this clip myself, I'm 16+ (or have my parent's OK) and accept the <a href="terms.html" target="_blank">Terms</a> &amp; <a href="privacy.html" target="_blank">Privacy Policy</a>.</span></label>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAFZ9uZJ08gyTnfce" data-theme="dark" data-size="flexible"></div>
+            <button class="btn" id="upsend" type="submit">Send my clip</button>
+            <div class="upmsg" id="upmsg"></div>
+          </form>
+    </main>
+
+    <footer>
+      <div class="row"><div class="links"><a href="./">Home</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy Policy</a><a href="impressum.html">Impressum</a><a href="giveaway.html">Giveaway</a></div></div>
+      <p>GTA Clips Today is a fan channel and is not affiliated with, endorsed or sponsored by Rockstar Games or Take-Two Interactive.</p>
+    </footer>
+  </div>
+
+<script src="upload.js"></script>
+</body>
+</html>
