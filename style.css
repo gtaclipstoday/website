@@ -250,3 +250,10 @@ select.in { cursor: pointer; }
   .channels, .cards { grid-template-columns: 1fr; }
   .tabs { border-radius: 14px; }
 }
+
+/* Kopfleiste mit Logo 8d (19.10.2026): Logo groesser, Name im Trailer-Stil */
+.top { height: 92px; }
+.brand { gap: 14px; font-family: Montserrat, sans-serif; font-weight: 800; font-size: 20px; letter-spacing: .14em;
+  text-transform: uppercase; color: #fff; text-shadow: 3px 3px 0 var(--mag); }
+.brand img { width: auto; height: 74px; border-radius: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,.5)); }
+@media (max-width: 860px) { .brand { font-size: 15px; letter-spacing: .1em; } .brand img { height: 56px; } }
