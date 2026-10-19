@@ -60,7 +60,7 @@
     show("Uploading … please keep this page open.", true);
     try {
       const st = await call("/start", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({
-        gamertag, links: link ? [link] : [], category: $("cat").value, social: $("social").value,
+        gamertag, links: link ? [link] : [], category: $("cat").value, social: $("social").value, email: $("email").value,
         description: $("desc").value, consent: true, turnstile: token,
         files: files.map(f => ({ name: f.name, size: f.size, type: f.type })) }) });
       const parts = [];
