@@ -1,9 +1,8 @@
 /* Live-Countdown im Klapp-Uhr-Stil fuer das Gewinnspiel. Jedes Element mit class="flipcd" wird befuellt.
-   Phasen (MEZ): bis 18.11. 12:00 (GTA-6-Start in Neuseeland) "GTA 6 launches", bis 18.12. "Entries close in", bis 24.12. 18:00 "Winner revealed in". */
+   Phasen (MEZ): bis 19.11. "Starts in", bis 18.12. "Entries close in", bis 24.12. 18:00 "Winner revealed in". */
 (function () {
   const PHASES = [
-    // GTA 6 erscheint zuerst in Neuseeland: 19.11. 0:00 NZDT = 18.11. 11:00 UTC = 12:00 MEZ (nicht offiziell bestaetigt)
-    [new Date("2026-11-18T11:00:00Z"), "GTA 6 launches & giveaway starts in"],
+    [new Date("2026-11-19T00:00:00+01:00"), "Giveaway starts in"],
     [new Date("2026-12-18T00:00:00+01:00"), "Entries close in"],
     [new Date("2026-12-24T18:00:00+01:00"), "Winner revealed in"],
   ];
