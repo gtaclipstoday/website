@@ -82,7 +82,8 @@ h2 { font-size: 26px; margin: 0 0 22px; }
 .sub { color: var(--muted); margin: -12px 0 24px; max-width: 640px; }
 
 /* Kanaele */
-.channels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.channels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+@media (max-width: 1000px) { .channels { grid-template-columns: repeat(2, 1fr); } }
 .ch { display: flex; flex-direction: column; gap: 14px; padding: 24px; border-radius: 14px; text-decoration: none; color: var(--text);
   background: linear-gradient(160deg, #3a2752 0%, var(--card) 70%); border: 1px solid var(--line); transition: transform .15s ease, border-color .15s ease; }
 .ch:hover { transform: translateY(-3px); border-color: var(--hot); color: var(--text); }
