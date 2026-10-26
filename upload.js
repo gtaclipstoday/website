@@ -29,6 +29,35 @@
     }
     paint();
   }
+  // Spam-Schutz (Cloudflare Turnstile) erst laden, wenn jemand das Formular benutzt - ein reiner Seitenbesuch
+  // greift so auf nichts im Browser zu (kein Cookie-Banner noetig, TDDDG § 25).
+  let tsLoad = null;
+  function loadTurnstile() {
+    if (tsLoad) return tsLoad;
+    tsLoad = new Promise(res => {
+      window.gctTurnstile = () => {
+        const el = $("upform").querySelector("[data-sitekey]");
+        turnstile.render(el, { sitekey: el.dataset.sitekey, theme: "dark", size: "flexible" });
+        res();
+      };
+      const s = document.createElement("script");
+      s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=gctTurnstile";
+      s.async = true;
+      document.head.appendChild(s);
+    });
+    return tsLoad;
+  }
+  ["focusin", "pointerdown", "dragenter"].forEach(ev => $("upform").addEventListener(ev, loadTurnstile, { once: true }));
+  async function turnstileToken() {
+    await loadTurnstile();
+    for (let i = 0; i < 40; i++) {  // bis zu 20 s auf die Pruefung warten
+      const t = window.turnstile && turnstile.getResponse();
+      if (t) return t;
+      await new Promise(r => setTimeout(r, 500));
+    }
+    return "";
+  }
+
   $("drop").onclick = () => $("upfile").click();
   $("upfile").onchange = e => { add(e.target.files); e.target.value = ""; };
   ["dragover", "dragenter"].forEach(ev => $("drop").addEventListener(ev, e => { e.preventDefault(); $("drop").classList.add("over"); }));
@@ -55,8 +84,9 @@
     if (!files.length && !link) return show("Please add a video or paste a link.");
     if (!gamertag) return show("Please enter your gamertag - it's shown as credit in the video.");
     if (!$("consent").checked) return show("Please confirm the checkbox.");
-    const token = (window.turnstile && turnstile.getResponse()) || "";
     $("upsend").disabled = true;
+    show("Checking … one moment.", true);
+    const token = await turnstileToken();
     show("Uploading … please keep this page open.", true);
     try {
       const st = await call("/start", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({

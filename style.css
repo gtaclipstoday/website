@@ -262,3 +262,9 @@ select.in { cursor: pointer; }
 .brand { gap: 14px; }
 .brand img { width: auto; height: 74px; border-radius: 0; filter: drop-shadow(0 4px 10px rgba(0,0,0,.5)); }
 @media (max-width: 860px) { .brand img { height: 56px; } }
+/* Handy (26.10.2026): Kopfleiste waechst mit, damit die Social-Buttons in der zweiten Zeile ganz im Schwarzen stehen */
+@media (max-width: 860px) {
+  .top { height: auto; padding: 10px 0 14px; row-gap: 10px; }
+  .top nav { width: 100%; }
+  .brand img { height: 48px; }
+}

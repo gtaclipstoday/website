@@ -12,7 +12,7 @@
   <meta name="theme-color" content="#1a1424">
   <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="style.css">
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <!-- Spam-Schutz (Turnstile) laedt upload.js erst, wenn jemand das Formular benutzt -->
 </head>
 <body>
   <div class="wrap">
@@ -48,7 +48,7 @@
             </details>
             <label class="consent"><input type="checkbox" id="consent">
               <span>I recorded this clip myself, I'm 16+ (or have my parent's OK) and accept the <a href="terms.html" target="_blank">Terms</a> &amp; <a href="privacy.html" target="_blank">Privacy Policy</a>.</span></label>
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAFZ9uZJ08gyTnfce" data-theme="dark" data-size="flexible"></div>
+            <div class="ts-box" data-sitekey="0x4AAAAAAFZ9uZJ08gyTnfce" data-theme="dark" data-size="flexible"></div>
             <button class="btn" id="upsend" type="submit">Send my clip</button>
             <div class="upmsg" id="upmsg"></div>
           </form>
